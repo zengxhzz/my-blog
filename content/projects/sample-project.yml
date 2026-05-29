@@ -1,0 +1,16 @@
+
+**示例项目 `content/projects/sample-project.yml`**：
+
+```yaml
+name: "个人技术博客"
+description: "基于 Nuxt 4 + Content v3 的内容驱动静态博客，纯静态部署。"
+tech:
+  - Nuxt 4
+  - Vue 3
+  - Tailwind CSS v4
+  - TypeScript
+url: "https://example.com"
+repo: "https://github.com/yourname/blog"
+featured: true
+year: 2026
+status: wip
