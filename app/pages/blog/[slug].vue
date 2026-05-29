@@ -14,10 +14,15 @@ if (!doc.value) {
 
 const post = doc.value
 
-// SEO：取 frontmatter 的 title 和 description
+// SEO：动态注入文章级 meta
 useSeoMeta({
   title: post.title,
   description: post.description,
+  ogTitle: post.title,
+  ogDescription: post.description,
+  ogImage: post.cover ?? '/og-default.png',
+  ogType: 'article',
+  articlePublishedTime: post.date,
 })
 </script>
 
