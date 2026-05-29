@@ -1,0 +1,10 @@
+name: "image-optimizer"
+description: "基于 Sharp 的批量图片压缩 CLI，支持 WebP/AVIF 转换与尺寸调整。"
+tech:
+  - TypeScript
+  - Sharp
+  - Node.js
+url: "https://www.npmjs.com/package/image-optimizer"
+featured: false
+year: 2024
+status: archived

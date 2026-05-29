@@ -1,0 +1,11 @@
+name: "dotfiles"
+description: "跨平台开发环境配置：Neovim、tmux、Zsh，一键同步到任何机器。"
+tech:
+  - Lua
+  - Shell
+  - Makefile
+url: "https://github.com/yourname/dotfiles"
+repo: "https://github.com/yourname/dotfiles"
+featured: true
+year: 2025
+status: active
