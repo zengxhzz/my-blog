@@ -21,7 +21,7 @@ const socialLinks = [
           :href="link.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="transition-colors hover:text-foreground"
+          class="py-1 transition-colors hover:text-foreground"
         >
           {{ link.label }}
         </a>
