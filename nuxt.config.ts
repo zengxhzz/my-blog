@@ -10,12 +10,12 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://yourname.dev',
-    name: 'yourname.',
+    name: 'k1sakityan.',
   },
 
   app: {
     head: {
-      titleTemplate: '%s · yourname.',
+      titleTemplate: '%s · k1sakityan.',
     },
   },
 

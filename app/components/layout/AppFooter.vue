@@ -2,7 +2,7 @@
 const year = new Date().getFullYear()
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/yourname' },
+  { label: 'GitHub', href: 'https://github.com/zengxhzz' },
   { label: 'Email', href: 'mailto:you@example.com' },
 ]
 </script>
@@ -12,7 +12,7 @@ const socialLinks = [
     <div
       class="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between"
     >
-      <p>© {{ year }} yourname · Built with Nuxt</p>
+      <p>© {{ year }} k1sakityan · Built with Nuxt</p>
 
       <div class="flex gap-4">
         <a

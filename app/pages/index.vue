@@ -27,7 +27,7 @@ useSeoMeta({
     <!-- ============ Hero ============ -->
     <section class="space-y-4">
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
-        你好，我是 yourname<span class="text-accent">.</span>
+        你好，我是 k1sakityan<span class="text-accent">.</span>
       </h1>
       <p class="max-w-prose text-lg leading-relaxed text-muted">
         一名热爱构建的开发者。这里记录我在技术、学习和思考路上的痕迹——

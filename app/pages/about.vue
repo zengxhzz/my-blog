@@ -28,7 +28,7 @@ useSeoMeta({
         </p>
         <p>
           工作之外会写一点开源工具，偶尔在
-          <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/zengxhzz" target="_blank" rel="noopener noreferrer">GitHub</a>
           上冒泡。喜欢把重复的事情自动化，所以花了不少时间折腾编辑器配置和命令行工具。
         </p>
       </section>

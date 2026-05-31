@@ -19,7 +19,7 @@ const navLinks = [
         class="font-mono text-base font-semibold tracking-tight transition-colors hover:text-accent"
         @click="isMenuOpen = false"
       >
-        yourname<span class="text-accent">.</span>
+        k1sakityan<span class="text-accent">.</span>
       </NuxtLink>
 
       <!-- 桌面端导航 -->

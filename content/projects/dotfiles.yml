@@ -4,8 +4,8 @@ tech:
   - Lua
   - Shell
   - Makefile
-url: "https://github.com/yourname/dotfiles"
-repo: "https://github.com/yourname/dotfiles"
+url: "https://github.com/zengxhzz/dotfiles"
+repo: "https://github.com/zengxhzz/dotfiles"
 featured: true
 year: 2025
 status: active
