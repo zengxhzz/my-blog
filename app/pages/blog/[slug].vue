@@ -20,7 +20,7 @@ useSeoMeta({
   description: post.description,
   ogTitle: post.title,
   ogDescription: post.description,
-  ogImage: post.cover ?? '/og-default.png',
+  ogImage: post.cover ?? '/ti.png',
   ogType: 'article',
   articlePublishedTime: post.date,
 })

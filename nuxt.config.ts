@@ -16,6 +16,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s · k1sakityan.',
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/ti.png' },
+      ],
     },
   },
 
