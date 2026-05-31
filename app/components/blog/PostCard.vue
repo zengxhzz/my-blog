@@ -21,7 +21,7 @@ const tagList = computed(() => props.tags ?? [])
         {{ description }}
       </p>
 
-      <div class="mt-2.5 flex items-center gap-3 text-sm">
+      <div class="mt-2.5 flex flex-wrap items-center gap-3 text-sm">
         <time :datetime="date" class="text-muted">
           {{ formatDate(date) }}
         </time>

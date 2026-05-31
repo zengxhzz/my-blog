@@ -58,7 +58,7 @@ const navLinks = [
       <!-- 移动端汉堡按钮 -->
       <button
         type="button"
-        class="text-muted transition-colors hover:text-foreground sm:hidden"
+        class="p-2 -mr-2 text-muted transition-colors hover:text-foreground sm:hidden"
         :aria-expanded="isMenuOpen"
         aria-label="打开导航菜单"
         @click="isMenuOpen = !isMenuOpen"
@@ -84,12 +84,12 @@ const navLinks = [
       v-if="isMenuOpen"
       class="border-t border-border px-6 py-4 sm:hidden"
     >
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="text-sm text-muted transition-colors hover:text-foreground"
+          class="py-2 text-sm text-muted transition-colors hover:text-foreground"
           active-class="text-foreground"
           @click="isMenuOpen = false"
         >
