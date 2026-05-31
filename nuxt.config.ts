@@ -30,4 +30,18 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-dark',   // ← 关键:从 github-light 改成深色主题
+            dark: 'github-dark',
+          },
+          langs: ['js', 'ts', 'vue', 'bash', 'json', 'html', 'css', 'md', 'python'],
+        },
+      },
+    },
+  },
 })
