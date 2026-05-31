@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: 'https://yourname.dev',
+    url: 'https://my-blog.zengxhzz.workers.dev',
     name: 'k1sakityan.',
   },
 
