@@ -23,7 +23,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="space-y-12 sm:space-y-20">
+  <div class="space-y-20">
     <!-- ============ Hero ============ -->
     <section class="space-y-4">
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
