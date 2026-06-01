@@ -22,45 +22,22 @@ useSeoMeta({
       <section>
         <h2>我是谁</h2>
         <p>
-          一名前端工程师，目前在写 Vue 和 TypeScript。
-          大学时学的是计算机科学，毕业后一直在做 Web 开发，从 jQuery 时代写到现在的 React / Vue / Serverless，
-          但真正让我觉得踏实的还是把一件事做到位——代码干净、交互流畅、性能可靠。
+          一名计算机在读学生，一个算法学习者，一个喜欢音乐的人。
         </p>
         <p>
-          工作之外会写一点开源工具，偶尔在
-          <a href="https://github.com/zengxhzz" target="_blank" rel="noopener noreferrer">GitHub</a>
-          上冒泡。喜欢把重复的事情自动化，所以花了不少时间折腾编辑器配置和命令行工具。
+          偶尔会随着大潮尝试各种东西，比如这个网站，感觉能写个自己的博客很cool的样子，
+          所以就写了。嗯。
         </p>
-      </section>
-
-      <section>
-        <h2>技术兴趣</h2>
-        <p>最近几年主要在这些方向上投入时间：</p>
-        <ul>
-          <li>
-            <strong>前端工程化</strong> — 构建工具、类型系统、代码生成。
-            相信好的工具链比好的人工规范更可靠。
-          </li>
-          <li>
-            <strong>内容驱动网站</strong> — 静态生成、Markdown 写作流、排版细节。
-            这个博客本身就是实验场。
-          </li>
-          <li>
-            <strong>开发者体验</strong> — CLI 设计、错误信息可读性、配置优于约定。
-            好的 DX 让人愿意多用你的工具。
-          </li>
-        </ul>
       </section>
 
       <section>
         <h2>正在学习</h2>
         <p>目前的学习清单：</p>
         <ol>
-          <li>Rust 基础——想用它重写几个性能敏感的 Node.js 工具</li>
-          <li>设计系统与排版——不只是能用，还要看着舒服</li>
-          <li>SQLite 与边缘计算——轻量、便携、适合个人项目</li>
+          <li>日语</li>
+          <li>算法</li>
+          <li>ai应用</li>
         </ol>
-        <p>这份清单每个季度会更新一次。学得慢没关系，持续就行。</p>
       </section>
 
       <section>
@@ -101,7 +78,7 @@ useSeoMeta({
         <h2>联系我</h2>
         <p>
           对文章内容有疑问或建议，欢迎发邮件到
-          <a href="mailto:you@example.com">you@example.com</a>
+          <a href="mailto:you@example.com">zengxhzz@163.com</a>
           ，或者在 GitHub 上开 issue。不保证秒回，但每条都会读。
         </p>
       </section>
