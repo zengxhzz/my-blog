@@ -2,7 +2,16 @@
 const colorMode = useColorMode()
 
 function toggle() {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  const next = colorMode.value === 'dark' ? 'light' : 'dark'
+
+  if (!document.startViewTransition) {
+    colorMode.preference = next
+    return
+  }
+
+  document.startViewTransition(() => {
+    colorMode.preference = next
+  })
 }
 </script>
 

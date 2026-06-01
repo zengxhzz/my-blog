@@ -13,12 +13,12 @@
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted:      #9ca3af;
-  --accent:     #60a5fa;
-  --border:     #27272a;
-  --card:       #121212;
+  --background: #0f1318;
+  --foreground: #cdd5e0;
+  --muted:      #97a1b0;
+  --accent:     #8ab4f8;
+  --border:     #2a313c;
+  --card:       #171c24;
 }
 
 @theme inline {
@@ -44,9 +44,52 @@
   }
 }
 
+/* ============================================================
+   暗色细化
+   ============================================================ */
+
+/* 引用块：左边框用 accent，文字用 muted 保持可读 */
+.dark blockquote {
+  border-left-color: var(--color-accent);
+  color: var(--color-muted);
+}
+
+/* 行内代码：亮色背景 + 暖色文字，跟正文区分 */
+.dark :not(pre) > code {
+  background: var(--color-card);
+  color: #e6b673;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* 代码块：比底色亮一档 + 边框，跟页面背景拉开层次 */
+.dark pre {
+  background: var(--color-card) !important;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
 /* Shiki 双主题：暗色模式下激活 dark 颜色变量 */
 .dark .shiki,
 .dark .shiki span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
+}
+
+/* ============================================================
+   主题切换过渡
+   ============================================================ */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.25s ease,
+    border-color     0.25s ease,
+    color            0.25s ease;
+}
+
+/* View Transitions API 交叉淡入淡出 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
 }
