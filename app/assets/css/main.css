@@ -40,6 +40,13 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    scrollbar-gutter: stable; 
+    scrollbar-gutter: stable;
   }
+}
+
+/* Shiki 双主题：暗色模式下激活 dark 颜色变量 */
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
 }

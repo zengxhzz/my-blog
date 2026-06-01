@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  modules: ['@nuxt/content', '@nuxtjs/seo'],
+  modules: ['@nuxt/content', '@nuxtjs/seo', '@nuxtjs/color-mode'],
 
   css: ['~/assets/css/main.css'],
 
@@ -39,12 +39,18 @@ export default defineNuxtConfig({
       markdown: {
         highlight: {
           theme: {
-            default: 'github-dark',   // ← 关键:从 github-light 改成深色主题
+            default: 'github-light',
             dark: 'github-dark',
           },
           langs: ['js', 'ts', 'vue', 'bash', 'json', 'html', 'css', 'md', 'python'],
         },
       },
     },
+  },
+
+  colorMode: {
+    classSuffix: '',      // <html class="dark"> ←关键
+    preference: 'system', // 默认跟随系统
+    fallback: 'light',    // 系统检测不到时用浅色
   },
 })

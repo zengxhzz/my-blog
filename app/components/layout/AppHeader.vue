@@ -34,25 +34,7 @@ const navLinks = [
           {{ link.label }}
         </NuxtLink>
 
-        <!-- 暗色切换按钮：占位，暂不实现逻辑 -->
-        <button
-          type="button"
-          aria-label="切换暗色模式（暂未实现）"
-          class="rounded-md border border-border p-1.5 text-muted transition-colors hover:text-foreground"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-          </svg>
-        </button>
+        <ColorModeToggle />
       </nav>
 
       <!-- 移动端汉堡按钮 -->
