@@ -32,4 +32,11 @@ export default defineContentConfig({
       }),
     }),
   },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,   // 自动顺着链接抓取所有文章页
+      routes: ['/blog'],  // 入口路由
+    },
+  },
 })
