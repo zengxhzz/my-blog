@@ -54,7 +54,7 @@ useSeoMeta({
     <!-- ============================================================ -->
 
     <!-- 正文 -->
-    <div class="prose max-w-none">
+    <div class="prose dark:prose-invert max-w-none">
       <ContentRenderer :value="post" />
     </div>
 

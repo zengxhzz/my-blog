@@ -18,7 +18,7 @@ useSeoMeta({
       ⚠️ 以下文案为占位内容，请替换为你自己的真实信息。
     -->
 
-    <div class="prose max-w-none space-y-6">
+    <div class="prose dark:prose-invert max-w-none space-y-6">
       <section>
         <h2>我是谁</h2>
         <p>
