@@ -1,75 +1,43 @@
-# Nuxt Minimal Starter
+# k1sakityan.
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+基于 Nuxt 4 + Nuxt Content v3 + Tailwind CSS v4 的静态个人博客。
 
-## Setup
+🌐 <https://my-blog.zengxhzz.workers.dev>
 
-Make sure to install dependencies:
+## 技术栈
+
+Nuxt 4 / Vue 3 / TypeScript / Nuxt Content v3 / Tailwind CSS v4 / @nuxtjs/seo
+
+## 本地开发
+
+安装依赖：
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+启动开发服务器（默认 http://localhost:3000）：
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+类型检查：
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npx nuxi typecheck
 ```
 
-Locally preview production build:
+## 生产构建
+
+生成纯静态文件到 `.output/public`：
 
 ```bash
-# npm
+npm run generate
+```
+
+本地预览生产产物：
+
+```bash
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
