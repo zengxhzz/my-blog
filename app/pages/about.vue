@@ -47,7 +47,7 @@ useSeoMeta({
           <NuxtLink to="/projects" class="text-accent hover:underline">
             项目页
           </NuxtLink>
-          ，欢迎看看。大部分是解决自己遇到的问题，顺便开源出来。
+          ，欢迎看看。
         </p>
       </section>
 
@@ -64,29 +64,20 @@ useSeoMeta({
             遇到同样问题的人可以搜到，不用我再解释一遍。
           </li>
           <li>
-            <strong>倒逼深度思考。</strong>
-            写清楚比想清楚更难。把一个概念写成一篇文章的过程，
-            会暴露很多你以为懂了但其实没懂的地方。
+            <strong>Just funny</strong>
+            
           </li>
         </ol>
-        <p>
-          不追求频率，不赶热点。每篇文章写到自己在半年后还能看懂为止。
-        </p>
       </section>
 
       <section>
         <h2>联系我</h2>
         <p>
           对文章内容有疑问或建议，欢迎发邮件到
-          <a href="mailto:you@example.com">zengxhzz@163.com</a>
+          <a href="mailto:zengxhzz@163.com">zengxhzz@163.com</a>
           ，或者在 GitHub 上开 issue。不保证秒回，但每条都会读。
         </p>
       </section>
     </div>
-
-    <!-- ⚠️ 请替换为你自己的内容 ↑ -->
-    <p class="rounded border border-border bg-card px-4 py-3 text-sm text-muted">
-      ⚠️ 提示：以上为占位文案，请替换为你自己的真实信息。
-    </p>
   </div>
 </template>

@@ -62,18 +62,18 @@
   border-radius: 4px;
 }
 
-/* 代码块：比底色亮一档 + 边框，跟页面背景拉开层次 */
-.dark pre {
-  background: var(--color-card) !important;
-  border: 1px solid var(--color-border);
+/* 代码块排版：间距、圆角、滚动、字号 */
+.shiki {
+  padding: 1rem 1.25rem;
   border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-/* Shiki 双主题：暗色模式下激活 dark 颜色变量 */
-.dark .shiki,
-.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
+/* 浅色模式下给代码块加个细边框，跟页面分隔 */
+html:not(.dark) .shiki {
+  border: 1px solid var(--color-border);
 }
 
 /* ============================================================
