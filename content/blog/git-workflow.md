@@ -3,7 +3,7 @@ title: "我的 Git 工作流"
 description: "记录日常开发中使用的 Git 分支策略与提交规范：主干开发、Conventional Commits、rebase 优先。"
 date: "2026-04-28"
 tags: ["git", "工具"]
-draft: false
+draft: true
 featured: false
 category: "工程"
 ---

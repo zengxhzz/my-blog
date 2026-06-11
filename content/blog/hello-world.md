@@ -7,7 +7,7 @@ draft: false
 featured: true
 ---
 
-这是第一篇文章，用来验证正文排版是否统一。下面把常见元素都过一遍。
+这是一篇文章，用来验证正文排版是否统一。下面把常见元素都过一遍。
 
 ![博客截图](https://placehold.co/800x400/2563eb/ffffff?text=Hello+World)
 

@@ -3,7 +3,7 @@ title: "TypeScript 实用模式笔记"
 description: "记录日常开发中最常用的几个 TypeScript 类型体操模式：模板字面量、条件类型、品牌类型与类型守卫。"
 date: "2026-05-20"
 tags: ["typescript", "patterns"]
-draft: false
+draft: true
 featured: false
 category: "前端"
 ---

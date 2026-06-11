@@ -1,139 +1,75 @@
 <script setup lang="ts">
-// 最近文章：过滤草稿、按日期倒序、取前 4 篇
-const { data: posts } = await useAsyncData('home-recent-posts', () =>
+useHead({ title: 'k1sakityan.', titleTemplate: '%s' })
+useSeoMeta({
+  description: '记录开发、阅读与思考的个人博客。',
+  ogTitle: 'k1sakityan.',
+  ogDescription: '记录开发、阅读与思考的个人博客。',
+})
+defineOgImageComponent('BlogPost', {
+  title: 'k1sakityan.',
+  description: '记录开发、阅读与思考的个人博客',
+})
+
+const { data: posts } = await useAsyncData('home-posts', () =>
   queryCollection('blog')
     .where('draft', '=', false)
     .order('date', 'DESC')
-    .limit(4)
-    .all()
+    .all(),
 )
 
-// 精选项目：只取 featured 为 true 的
-const { data: projects } = await useAsyncData('home-featured-projects', () =>
-  queryCollection('projects')
-    .where('featured', '=', true)
-    .all()
-)
-
-// 首页基础 SEO（完整 SEO 在任务 13 统一做，这里先给个标题）
-useSeoMeta({
-  title: '首页',
-  description: '一个关于技术、学习与思考的个人博客。',
-})
+const recent = computed(() => (posts.value ?? []).slice(0, 6))
 </script>
 
 <template>
-  <div class="space-y-12 sm:space-y-20">
-    <!-- ============ Hero ============ -->
-    <section class="space-y-4">
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
-        你好，我是 k1sakityan<span class="text-accent">.</span>
-      </h1>
-      <p class="max-w-prose text-lg leading-relaxed text-muted">
-        一名热爱构建的开发者。这里记录我在技术、学习和思考路上的痕迹——
-        写给未来的自己，也写给路过的你。
+  <div class="mx-auto w-full max-w-3xl px-5">
+    <!-- Hero -->
+    <section class="pt-16 pb-12 sm:pt-24 sm:pb-16">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">k1sakityan.</h1>
+      <p class="mt-4 max-w-prose leading-relaxed text-ink-2">
+        记录开发、阅读与日常思考的小站。写给自己,也写给恰好路过的你。
       </p>
+      <div class="mt-7 flex items-center gap-3">
+        <a
+          href="https://github.com/zengxhzz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex h-10 items-center gap-2 rounded-full border border-line bg-surface-1 px-4 text-sm text-ink-2 shadow-card transition hover:border-line-strong hover:text-ink hover:shadow-card-hover"
+        >
+          <svg viewBox="0 0 16 16" class="size-4 fill-current" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+          </svg>
+          GitHub
+        </a>
+        <a
+          href="/rss.xml"
+          class="inline-flex h-10 items-center gap-2 rounded-full border border-line bg-surface-1 px-4 text-sm text-ink-2 shadow-card transition hover:border-line-strong hover:text-ink hover:shadow-card-hover"
+        >
+          <svg viewBox="0 0 24 24" class="size-4 fill-current" aria-hidden="true">
+            <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56Zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9ZM6.18 15.64a2.18 2.18 0 1 0 0 4.36 2.18 2.18 0 0 0 0-4.36Z" />
+          </svg>
+          RSS
+        </a>
+      </div>
     </section>
 
-    <!-- ============ 最近文章 ============ -->
-    <section class="space-y-6">
-      <div class="flex items-baseline justify-between">
-        <h2 class="text-sm font-semibold uppercase tracking-wider text-muted">
-          最近文章
-        </h2>
+    <!-- 最近文章 -->
+    <section class="pb-20">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="text-lg font-semibold">最近文章</h2>
         <NuxtLink
           to="/blog"
-          class="text-sm text-muted transition-colors hover:text-accent"
+          class="text-sm text-accent-strong underline-offset-4 transition hover:underline"
         >
-          查看全部 →
+          全部文章 →
         </NuxtLink>
       </div>
 
-      <ul v-if="posts?.length" class="divide-y divide-border">
-        <li v-for="post in posts" :key="post.path" class="py-4 first:pt-0">
-          <NuxtLink :to="post.path" class="group block">
-            <div
-              class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-            >
-              <h3
-                class="font-medium transition-colors group-hover:text-accent"
-              >
-                {{ post.title }}
-              </h3>
-              <time
-                :datetime="post.date"
-                class="shrink-0 text-sm text-muted"
-              >
-                {{ formatDate(post.date) }}
-              </time>
-            </div>
-            <p class="mt-1 text-sm text-muted">
-              {{ post.description }}
-            </p>
-          </NuxtLink>
+      <ul v-if="recent.length" class="grid gap-4">
+        <li v-for="p in recent" :key="p.path">
+          <PostCard :post="p" />
         </li>
       </ul>
-
-      <p v-else class="text-sm text-muted">还没有文章，敬请期待。</p>
-    </section>
-
-    <!-- ============ 精选项目 ============ -->
-    <section v-if="projects?.length" class="space-y-6">
-      <div class="flex items-baseline justify-between">
-        <h2 class="text-sm font-semibold uppercase tracking-wider text-muted">
-          精选项目
-        </h2>
-        <NuxtLink
-          to="/projects"
-          class="text-sm text-muted transition-colors hover:text-accent"
-        >
-          查看全部 →
-        </NuxtLink>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-2">
-        <article
-          v-for="project in projects"
-          :key="project.name"
-          class="rounded-lg border border-border bg-card p-5"
-        >
-          <h3 class="font-medium">
-            <a
-              v-if="project.url"
-              :href="project.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="transition-colors hover:text-accent"
-            >
-              {{ project.name }}
-            </a>
-            <span v-else>{{ project.name }}</span>
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted">
-            {{ project.description }}
-          </p>
-          <ul class="mt-3 flex flex-wrap gap-2">
-            <li
-              v-for="t in project.tech"
-              :key="t"
-              class="rounded border border-border px-2 py-0.5 font-mono text-xs text-muted"
-            >
-              {{ t }}
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 关于入口 ============ -->
-    <section class="border-t border-border pt-12">
-      <p class="text-muted">
-        想了解更多关于我的内容，可以看看
-        <NuxtLink to="/about" class="text-accent hover:underline">
-          关于我
-        </NuxtLink>
-        。
-      </p>
+      <p v-else class="text-ink-3">还没有文章,敬请期待。</p>
     </section>
   </div>
 </template>

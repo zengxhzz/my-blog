@@ -1,95 +1,250 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* 暗色模式 class 策略,配合 @nuxtjs/color-mode 的 classSuffix: '' */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ============================================================
+   1) 原始色板:亮 / 暗两套,只在这里改颜色,全站生效
+   亮色基调:背景 #E6F7FF + 强调 #89C2FF(需求指定)
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #18181b;
-  --muted:      #6b7280;
-  --accent:     #2563eb;
-  --border:     #e5e7eb;
-  --card:       #fafafa;
+  --c-bg: #E6F7FF;             /* 页面背景(指定) */
+  --c-surface: #F5FBFF;        /* 卡片 / 浮层 */
+  --c-surface-2: #D8EFFD;      /* 次级区块 */
+  --c-line: #C3E4F8;           /* 边框 */
+  --c-line-strong: #9CCFF0;    /* 强边框 / hover 边框 */
+  --c-ink: #1C3A52;            /* 正文(深灰蓝,对 #E6F7FF 约 9:1,AA/AAA) */
+  --c-ink-2: #44617B;          /* 次级文字 */
+  --c-ink-3: #4E6E8C;          /* 弱化文字 / 元信息 */
+  --c-accent: #89C2FF;         /* 强调色(指定):填充、点缀、高亮 */
+  --c-accent-strong: #0F5C9F;  /* 可交互文字(链接),对浅蓝背景 ≥ 4.5:1 */
+  --c-accent-soft: rgb(137 194 255 / 0.28); /* 浅强调:tag、行内码、引用底 */
+  --c-accent-contrast: #0E2A45;/* 放在 accent 填充上的文字色 */
+  --c-code-bg: #F2F9FF;        /* 代码块底色(配 github-light) */
+  --c-shadow-card: 0 1px 2px rgb(28 58 82 / 0.05), 0 8px 24px -16px rgb(28 58 82 / 0.25);
+  --c-shadow-card-hover: 0 2px 4px rgb(28 58 82 / 0.06), 0 16px 32px -16px rgb(137 194 255 / 0.6);
 }
 
 .dark {
-  --background: #0f1318;
-  --foreground: #cdd5e0;
-  --muted:      #97a1b0;
-  --accent:     #8ab4f8;
-  --border:     #2a313c;
-  --card:       #171c24;
+  --c-bg: #0C1722;             /* 深海军蓝,与白天蓝白基调呼应 */
+  --c-surface: #122131;
+  --c-surface-2: #182B3F;
+  --c-line: #23394E;
+  --c-line-strong: #31506C;
+  --c-ink: #DDEBF8;            /* 对 #0C1722 约 13:1 */
+  --c-ink-2: #A8C2DA;
+  --c-ink-3: #7E9CB6;
+  --c-accent: #89C2FF;
+  --c-accent-strong: #A6D1FF;  /* 暗色下链接用更亮的蓝保证对比 */
+  --c-accent-soft: rgb(137 194 255 / 0.16);
+  --c-accent-contrast: #0E2A45;
+  --c-code-bg: #0D1B29;        /* 配 github-dark */
+  --c-shadow-card: 0 1px 2px rgb(0 0 0 / 0.45), 0 8px 24px -16px rgb(0 0 0 / 0.6);
+  --c-shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.5), 0 16px 32px -16px rgb(137 194 255 / 0.25);
 }
 
+/* ============================================================
+   2) 语义化设计 token(Tailwind v4 @theme)
+   生成的工具类:bg-surface-0 / text-ink / border-line /
+   text-accent-strong / shadow-card / rounded-card / font-sans ...
+   ============================================================ */
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted:      var(--muted);
-  --color-accent:     var(--accent);
-  --color-border:     var(--border);
-  --color-card:       var(--card);
+  --color-surface-0: var(--c-bg);
+  --color-surface-1: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-ink-3: var(--c-ink-3);
+  --color-accent: var(--c-accent);
+  --color-accent-strong: var(--c-accent-strong);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-accent-contrast: var(--c-accent-contrast);
+  --color-code-bg: var(--c-code-bg);
+  --shadow-card: var(--c-shadow-card);
+  --shadow-card-hover: var(--c-shadow-card-hover);
 }
 
+@theme {
+  /* 系统字体栈优先,中英文混排友好,零首屏字体开销 */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --radius-card: 0.875rem;
+}
+
+/* ============================================================
+   3) 基础样式
+   ============================================================ */
 @layer base {
   html {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    scrollbar-gutter: stable;
+  }
+
+  ::selection {
+    background-color: var(--c-accent);
+    color: var(--c-accent-contrast);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent-strong);
+    outline-offset: 2px;
+  }
+
+  /* 主题切换时颜色平滑过渡(尊重 reduced-motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 /* ============================================================
-   暗色细化
+   4) 页面切换淡入
    ============================================================ */
-
-/* 引用块：左边框用 accent，文字用 muted 保持可读 */
-.dark blockquote {
-  border-left-color: var(--color-accent);
-  color: var(--color-muted);
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
-
-/* 行内代码：亮色背景 + 暖色文字，跟正文区分 */
-.dark :not(pre) > code {
-  background: var(--color-card);
-  color: #e6b673;
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
 }
-
-/* 代码块排版：间距、圆角、滚动、字号 */
-.shiki {
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* 浅色模式下给代码块加个细边框，跟页面分隔 */
-html:not(.dark) .shiki {
-  border: 1px solid var(--color-border);
+.page-leave-to {
+  opacity: 0;
 }
 
 /* ============================================================
-   主题切换过渡
+   5) 文章正文 prose:全部走语义 token,亮暗自动跟随
    ============================================================ */
-*,
-*::before,
-*::after {
-  transition:
-    background-color 0.25s ease,
-    border-color     0.25s ease,
-    color            0.25s ease;
+.prose {
+  --tw-prose-body: var(--c-ink);
+  --tw-prose-headings: var(--c-ink);
+  --tw-prose-lead: var(--c-ink-2);
+  --tw-prose-links: var(--c-accent-strong);
+  --tw-prose-bold: var(--c-ink);
+  --tw-prose-counters: var(--c-ink-3);
+  --tw-prose-bullets: var(--c-accent);
+  --tw-prose-hr: var(--c-line);
+  --tw-prose-quotes: var(--c-ink-2);
+  --tw-prose-quote-borders: var(--c-accent);
+  --tw-prose-captions: var(--c-ink-3);
+  --tw-prose-code: var(--c-ink);
+  --tw-prose-pre-code: inherit;
+  --tw-prose-pre-bg: transparent;
+  --tw-prose-th-borders: var(--c-line-strong);
+  --tw-prose-td-borders: var(--c-line);
+
+  font-size: 1.0625rem;
+  line-height: 1.9;          /* 中英文混排更舒展 */
+  letter-spacing: 0.01em;
 }
 
-/* View Transitions API 交叉淡入淡出 */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.35s;
+.prose :where(h1, h2, h3, h4) {
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+}
+.prose :where(h2) {
+  margin-top: 2.4em;
+}
+
+.prose :where(a):not(:where(.not-prose *)) {
+  text-decoration-line: underline;
+  text-decoration-color: var(--c-accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.prose :where(a:hover):not(:where(.not-prose *)) {
+  text-decoration-color: currentColor;
+}
+
+.prose :where(blockquote):not(:where(.not-prose *)) {
+  font-style: normal;
+  border-left: 3px solid var(--c-accent);
+  background-color: var(--c-accent-soft);
+  padding: 0.75em 1.25em;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+.prose :where(blockquote p:first-of-type)::before,
+.prose :where(blockquote p:last-of-type)::after {
+  content: none;
+}
+
+.prose :where(:not(pre) > code):not(:where(.not-prose *)) {
+  background-color: var(--c-accent-soft);
+  border-radius: 0.375rem;
+  padding: 0.15em 0.4em;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+.prose :where(code)::before,
+.prose :where(code)::after {
+  content: none;
+}
+
+.prose :where(img):not(:where(.not-prose *)) {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--c-line);
+}
+
+/* 宽表格在手机上横向滚动,避免页面整体横滚 */
+.prose :where(table):not(:where(.not-prose *)) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ============================================================
+   6) 代码块(配合 components/content/ProsePre.vue)
+   Shiki 双主题:span 上带 --shiki-default / --shiki-dark 变量
+   ============================================================ */
+.code-block pre {
+  overflow-x: auto;
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+.code-block pre code {
+  display: inline-block;
+  min-width: 100%;
+  font-family: var(--font-mono);
+}
+.code-block pre span {
+  color: var(--shiki-default, inherit);
+}
+.dark .code-block pre span {
+  color: var(--shiki-dark, inherit);
+}
+.code-block pre .line.highlight,
+.code-block pre .line.highlighted {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--c-accent-soft);
 }
