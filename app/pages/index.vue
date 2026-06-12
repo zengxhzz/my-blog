@@ -5,7 +5,7 @@ useSeoMeta({
   ogTitle: 'k1sakityan.',
   ogDescription: '记录开发、阅读与思考的个人博客。',
 })
-defineOgImageComponent('BlogPost', {
+defineOgImage('BlogPost', {
   title: 'k1sakityan.',
   description: '记录开发、阅读与思考的个人博客',
 })

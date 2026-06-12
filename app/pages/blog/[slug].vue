@@ -49,7 +49,7 @@ useSeoMeta({
   articlePublishedTime: publishedIso.value,
 })
 
-defineOgImageComponent('BlogPost', {
+defineOgImage('BlogPost', {
   title: post.value.title,
   description: post.value.description,
 })

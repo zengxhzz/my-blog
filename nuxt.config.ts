@@ -42,8 +42,6 @@ export default defineNuxtConfig({
 
   ogImage: {
     zeroRuntime: true,
-    // 构建期下载,保证 OG 图里的中文标题能正常渲染(不影响运行时体积)
-    fonts: ['Noto+Sans+SC:400', 'Noto+Sans+SC:700'],
   },
 
   nitro: {

@@ -3,7 +3,7 @@ useSeoMeta({
   title: '文章',
   description: '全部文章归档,按时间倒序排列。',
 })
-defineOgImageComponent('BlogPost', {
+defineOgImage('BlogPost', {
   title: '文章归档',
   description: 'k1sakityan. 的全部文章',
 })

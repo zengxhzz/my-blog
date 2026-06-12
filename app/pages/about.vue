@@ -6,7 +6,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="space-y-10">
+  <div class="mx-auto w-full max-w-3xl px-5 py-14 sm:py-20 space-y-10">
     <header class="space-y-2">
       <h1 class="text-2xl font-bold tracking-tight">关于</h1>
       <p class="text-muted">
