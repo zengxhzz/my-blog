@@ -31,12 +31,24 @@ export default defineContentConfig({
         status: z.enum(['active', 'archived', 'wip']).optional(),
       }),
     }),
+    notes: defineCollection({
+      type: 'data',
+      source: 'notes/notes.yml',
+      schema: z.object({
+        notes: z.array(
+          z.object({
+            date: z.string(),
+            text: z.string(),
+          }),
+        ).default([]),
+      }),
+    }),
   },
 
   nitro: {
     prerender: {
       crawlLinks: true,   // 自动顺着链接抓取所有文章页
-      routes: ['/blog'],  // 入口路由
+      routes: ['/blog', '/notes'],  // 入口路由
     },
   },
 })

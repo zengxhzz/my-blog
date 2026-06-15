@@ -12,6 +12,7 @@ watch(
 const links = [
   { to: '/', label: '首页' },
   { to: '/blog', label: '文章' },
+  { to: '/notes', label: '随笔' },
   { to: '/projects', label: '项目' },
   { to: '/about', label: '关于' },
 ]

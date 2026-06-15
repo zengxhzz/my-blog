@@ -49,7 +49,7 @@ useSeoMeta({
   articlePublishedTime: publishedIso.value,
 })
 
-defineOgImage('BlogPost', {
+defineOgImage('BlogPostSatori', {
   title: post.value.title,
   description: post.value.description,
 })
@@ -64,7 +64,7 @@ defineOgImage('BlogPost', {
     >
       <div class="hidden xl:block" aria-hidden="true" />
 
-      <article class="mx-auto w-full max-w-[46rem]">
+      <article class="mx-auto w-full max-w-184">
         <!-- 文章头部元信息 -->
         <header class="mb-10">
           <h1 class="text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
