@@ -22,4 +22,3 @@ featured: false
 const hello = "world"
 ```
 
-aa

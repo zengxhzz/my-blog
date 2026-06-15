@@ -49,6 +49,15 @@
 - `tailwind.config` 文件 / `@tailwind` 指令 → v4 不该有
 - 写死颜色 `bg-white` / `text-gray-` / `#色值` → 应只用语义 token
 
+**Tailwind 任意值换标准类**(VS Code `suggestCanonicalClasses` 提示,不改也没事,改了更干净):
+- 计算方式:Tailwind v4 `1` = `0.25rem`(4px),把任意值里的 rem × 4 就是标准类数字
+- 常见替换:
+  - `max-w-[46rem]` → `max-w-184`(46×4=184)
+  - `absolute top-0` 组合 → `absolute inset-0` 合并
+  - `-start-[calc(...)]` → 用逻辑属性前缀 `-inset-s-*`(start 是旧物理方向,inset-s 是新逻辑属性)
+  - `1.5rem` = `6`, `2px` ≈ `0.5` → 合在一起 `6.5`
+  - 遇到时直接按 IntelliSense 建议改即可
+
 ---
 
 ## 三、依赖升级(每 1–3 个月一次)

@@ -36,35 +36,32 @@ const groups = computed(() => {
 
     <div v-if="groups.length" class="mt-10 space-y-12">
       <section v-for="[year, list] in groups" :key="year">
-        <h2
-          class="mb-6 font-mono text-sm font-medium tracking-wider text-ink-3"
-        >
+        <h2 class="mb-4 font-mono text-sm font-medium tracking-wider text-ink-3">
           {{ year }}
         </h2>
 
-        <ul class="relative border-s-2 border-s-[color-mix(in_srgb,currentColor_12%,transparent)] space-y-6">
-          <li
-            v-for="n in list"
-            :key="n.date"
-            class="relative ms-6"
-          >
-            <!-- 时间线圆点 -->
-            <span
-              class="absolute -start-[calc(1.5rem+2px)] top-1.5 size-2.5 rounded-full"
-              style="background-color: color-mix(in srgb, currentColor 25%, transparent)"
-              aria-hidden="true"
-            />
-
-            <time
-              :datetime="n.date"
-              class="text-sm opacity-60"
-            >
-              {{ n.date }}
-            </time>
-
-            <p class="mt-1 leading-relaxed whitespace-pre-line">
-              {{ n.text }}
-            </p>
+        <ul class="relative space-y-5">
+          <li v-for="n in list" :key="n.date" class="flex gap-4">
+            <!-- 时间线列 -->
+            <div class="flex flex-col items-center shrink-0">
+              <span
+                class="mt-1.5 size-2 rounded-full"
+                style="background-color: color-mix(in srgb, currentColor 30%, transparent)"
+              />
+              <div
+                class="w-px flex-1"
+                style="background-color: color-mix(in srgb, currentColor 12%, transparent)"
+              />
+            </div>
+            <!-- 内容列 -->
+            <div class="pb-5">
+              <time :datetime="n.date" class="text-sm opacity-60">
+                {{ n.date }}
+              </time>
+              <p class="mt-1 leading-relaxed whitespace-pre-line">
+                {{ n.text }}
+              </p>
+            </div>
           </li>
         </ul>
       </section>
