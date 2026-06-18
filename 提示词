@@ -1,4 +1,0 @@
-我有一个个人技术博客,技术栈:Nuxt 4 + Nuxt Content v3 + 
-Tailwind CSS v4 + TypeScript,纯静态部署在 Cloudflare Pages。
-内容用 queryCollection 查询,颜色用语义 token(不写死颜色)。
-我现在遇到/想做:______
