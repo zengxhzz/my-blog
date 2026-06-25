@@ -42,7 +42,7 @@
 1. 先开新分支:`git checkout -b fix-xxx`
 2. 本地改,`npm run dev` 看效果
 3. 检查类型:`npx nuxi typecheck`
-4. 没问题再合并到 main 并推送
+4. 没问题再合并到 master 并推送
 
 **红线自检**(改完搜一遍,出现就是错的):
 - `queryContent` → 应为 `queryCollection`
